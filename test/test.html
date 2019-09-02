@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="test.css">
+        <script src="jquery-1.11.2.min.js"></script>
+    </head>
+    <body>
+        <div class="box">
+            <header class="nav">
+                <div>
+                    <img src="./img/logo.png" alt="">
+                    <ul>
+                        <li>遇见和目</li>
+                        <li>智能摄像机</li>
+                        <li>智能设备</li>
+                        <li>智品商城</li>
+                        <li>下载和目APP</li>
+                    </ul>
+                </div>
+                <div class="web">和目网页版</div>
+            </header>
+            <section>
+                <div class="section">
+                    <h1>极致简约，物美价廉</h1>
+                    <p>物美价廉，超高性价比，能看能听会说，把家放进手机里</p>
+                    <span class="buy">购买和目C13c</span>
+                    <div class="rotate">
+                        <img src="./img/rotate-left.png" alt="" class="r-img rotate-left" onclick="turn(1)">
+                        <img src="./img/rotate-right.png" alt="" class="r-img rotate-right" onclick="turn(2)">
+                        <div class="product">
+                            <img src="./img/rotate1.png" alt="" class="pro-img">
+                            <span>3D浏览产品外观</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="carousel">
+                <div class="carousel-title">
+                    <div>特点</div>
+                    <div>价格</div>
+                    <div>重量</div>
+                    <div>尺寸</div>
+                    <div>可控镜头</div>
+                    <div>视频分辨率</div>
+                    <div>局域网</div>
+                </div>
+                <div class="carousel-content"></div>
+            </section>
+            <section class="describe">
+                <div class="des">
+                    <h3>基本参数</h3>
+                    <p>对角视角 : 90°</p>
+                    <p>有效像素 : 100万</p>
+                    <p>红外补光 : 2颗</p>
+                    <p>夜视距离 : 5米</p>
+                    <p>帧速率 : 25fps</p>
+                    <p>夜视 : 支持0照度红外夜视 支持IR-cUT</p>
+                    <p>语音 : 双向语音对讲</p>
+                    <p>检测 : 高精度运动检测，自适应噪音检测</p>
+                </div>
+                <div class="des">
+                    <h3>连接标准</h3>
+                    <p>WiFi标准 : IEEE 802.11b, IEEE 802.11g, IEEE 802.11n</p>
+                    <p>无线安全 : WEP/WPA/WPA-PSK/WPA2-PSK</p>
+                    <p>建议带宽 : 建议2Mbps以上上行带宽</p>
+                    <p>音频传输 : 半双工语音对讲</p>
+                    <p>加密方式 : 私有视频格式，全程https长连接</p>
+                    <p>AES256加密</p>
+                    <p>存储 : 云储存</p>
+                </div>
+                <div class="des">
+                    <h3>使用环境</h3>
+                    <p>外部接口 : SET按键/5V MicroUSB接口</p>
+                    <p>垂直转动 : 140°</p>
+                    <p>水平转动 : 360°万向轴</p>
+                    <p>供电电源 : 5V 1A MicroUSB接口</p>
+                    <p>电源线长 : 1.5米</p>
+                </div>
+            </section>
+            <footer>
+                <div class="footer">
+                    <div class="contact">
+                        <p><img src="./img/phone.png" alt="">12345678</p>
+                        <p><img src="./img/email.png" alt="">hemu@cmiot.chinamobile.com</p>
+                    </div>
+                    <div class="copyright"><img src="./img/cm.png" alt="">Copyright(c)2017 andmu.cn All Rights Reserved 渝ICP备13005647号</div>
+                </div>
+            </footer>
+        </div>
+    </body>
+    <script>
+        //初始化旋转图片的id
+        var id = 1;
+        // 旋转图片的路径数组
+        var arr=[{id:1,src:'./img/rotate1.png'},{id:2,src:'./img/rotate2.png'},{id:3,src:'./img/rotate3.png'},
+            {id:4,src:'./img/rotate4.png'},{id:5,src:'./img/rotate5.png'},{id:6,src:'./img/rotate6.png'}];
+        // 点击旋转触发的事件
+        function turn(val){
+            if(val==2){
+                id+=1;
+                // 当旋转到最后一张图片时，再第一张图片开始
+                if(id > 6){
+                    id = 1;
+                }
+            }else{
+                id-=1;
+                if(id < 1){
+                    id = 6;
+                }
+            }
+            // 循环图片数组，替换当前点击id对应的图片
+            for(let i of arr){
+                if(id == i.id){
+                    $('.pro-img').attr('src',i.src);
+                }
+            }
+        }
+        var list = [
+            {
+                character:'精巧玲珑',
+                price:'98',
+                weight:'107',
+                size:'65x65x100',
+                lens:'不可控',
+                px:'1280x720',
+                lan:'不支持',
+                src:'./img/item1.png',
+                title:'C12'
+            },
+            {
+                character:'精巧玲珑',
+                price:'98',
+                weight:'107',
+                size:'65x65x100',
+                lens:'不可控',
+                px:'1280x720',
+                lan:'不支持',
+                src:'./img/item2.png',
+                title:'C13'
+            },
+            {
+                character:'精巧玲珑',
+                price:'98',
+                weight:'107',
+                size:'65x65x100',
+                lens:'不可控',
+                px:'1280x720',
+                lan:'不支持',
+                src:'./img/item5.png',
+                title:'C14'
+            },
+            {
+                character:'精巧玲珑',
+                price:'98',
+                weight:'107',
+                size:'65x65x100',
+                lens:'不可控',
+                px:'1280x720',
+                lan:'不支持',
+                src:'./img/item1.png',
+                title:'C15'
+            },
+            {
+                character:'精巧玲珑',
+                price:'98',
+                weight:'107',
+                size:'65x65x100',
+                lens:'不可控',
+                px:'1280x720',
+                lan:'不支持',
+                src:'./img/item2.png',
+                title:'C16'
+            },
+            {
+                character:'精巧玲珑',
+                price:'98',
+                weight:'107',
+                size:'65x65x100',
+                lens:'不可控',
+                px:'1280x720',
+                lan:'不支持',
+                src:'./img/item5.png',
+                title:'C17'
+            }
+        ]
+        $(function(){
+            let html1 = ''
+            for(let i of list){
+                let html ='<div><div>'+i.character+'</div><div>￥'+i.price+'</div><div>'+i.weight+'g</div><div>'+i.size+'mm</div><div>'+i.lens+'</div><div>'+i.px+'</div><div>'+i.lan+'</div></div>'
+                $('.carousel-content').append(html);
+                html1 += '<div class="img"><h2>'+i.title+'</h2><img src="'+i.src+'" alt=""></div>'
+            }
+            let newhtml = '<div class="img-dv"><div class="img" style="visibility:hidden"></div>'+html1+'</div>'
+            $('.section').after(newhtml);
+        })
+    </script>
+</html>
