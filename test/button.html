@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            table{
+                border-collapse: collapse; 
+                text-align: center;
+                margin:0 auto;
+            }
+            table th{
+                text-align: center;
+                background: #ddd;
+                padding: 3px;
+                border: none;
+                font-size:25px;
+            }
+            table td{
+                padding: 3px;
+                border: none;
+                border-top: 1px solid #fff;
+                font-size:18px;
+            }
+            tr.odd{
+                background: #fff;
+            }
+            tr.even{
+                background: #eee;
+            }
+            tr.hover{
+                background: #9cf;
+            }
+            button{
+                width:60px;
+                height:30px;
+                font-size:16px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="table-list">
+            <table width="500px">
+                <thead>
+                    <tr>
+                        <th colspan="2">文件列表</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </body>
+    <script src="jquery-1.11.2.min.js"></script>
+    <script>
+		window.onload = function(){
+            // 初始化表格数据
+            var file_list= [
+                {id:1,filename:'BTBMonitor-Buy-09-20-14-28.csv'},
+                {id:2,filename:'BTBMonitor-Buy-09-20-14-28.csv'},
+                {id:3,filename:'BTBMonitor-Buy-09-20-14-28.csv'},
+                {id:4,filename:'BTBMonitor-Buy-09-20-14-28.csv'},
+                {id:5,filename:'BTBMonitor-Buy-09-20-14-28.csv'},
+                {id:6,filename:'BTBMonitor-Buy-09-20-14-28.csv'},
+                {id:7,filename:'BTBMonitor-Buy-09-20-14-28.csv'},
+                {id:8,filename:'BTBMonitor-Buy-09-20-14-28.csv'},
+                {id:9,filename:'BTBMonitor-Buy-09-20-14-28.csv'}
+            ]
+            let tbodyHtml= ''
+            for(let i of file_list){
+                tbodyHtml+='<tr><td>'+i.filename+'</td><td><button onclick="delData('+i.id+')">删除</button></td></tr>'
+            }
+            $('tbody').append(tbodyHtml);
+            // 给表格添加条纹
+            var trs = document.getElementsByTagName("tr");
+			for(var i=1; i<trs.length; i++){
+				var tr = trs[i];
+				tr.className = i%2 != 0? 'odd' : 'even';
+				add_event(tr);
+		    }
+		}	
+        function add_event(tr){
+			tr.onmouseover = function(){
+				tr.className += ' hover';
+			};
+			tr.onmouseout = function(){
+				tr.className = tr.className.replace(' hover', '');
+			};
+        }
+        // 删除数据
+        function delData(id){
+            alert('删除的文件id为'+id);
+        }
+    </script>
+</html>
