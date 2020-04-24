@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>倒计时例子</title>
+</head>
+<body>
+    <button onclick="send()" id="btn">发送</button>
+</body>
+<script>
+    var seconds = 4
+    function send(){
+        var btn = document.getElementById('btn');
+        var timer = setInterval(function(){
+            btn.setAttribute('disabled',true)
+            btn.innerHTML = seconds + 's'
+            seconds --;
+            if(seconds<0){
+                clearInterval(timer)
+                btn.innerHTML = '发送'
+                seconds = 4
+                btn.removeAttribute('disabled')
+            }
+        },1000)
+    }
+</script>
+</html>
